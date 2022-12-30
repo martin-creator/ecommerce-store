@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Pinterest } from "@material-ui/icons";
+import { Facebook, Instagram, Twitter, Pinterest, Room, Phone, Email } from "@material-ui/icons";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -62,6 +62,16 @@ const Right = styled.div`
   padding: 20px;
 `;
 
+const ContactItem = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+`
+
+const Payment = styled.img`
+width: 50%;
+`
+
 const Footer = () => {
   return (
     <Container>
@@ -103,9 +113,10 @@ const Footer = () => {
       </Center>
       <Right>
         <Title>Contact</Title>
-        <ContactItem>Kampala, Uganda, 3000</ContactItem>
-        <ContactItem>+256789562634</ContactItem>
-        <ContactItem>eagle@africa.com</ContactItem>
+        <ContactItem><Room style={{ marginRight: "10px"}}/>Kampala, Uganda, 3000</ContactItem>
+        <ContactItem><Phone style={{ marginRight: "10px"}}/>+256789562634</ContactItem>
+        <ContactItem><Email style={{ marginRight: "10px"}}/>eagle@africa.com</ContactItem>
+        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
     </Container>
   );
