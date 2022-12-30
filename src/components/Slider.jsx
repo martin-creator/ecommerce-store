@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  /* background-color: coral; */
+  background-color: coral;
 `;
 const Arrow = styled.div`
   width: 50px;
