@@ -50,7 +50,6 @@ const Image = styled.img`
 `
 
 
-
 const Icon = styled.div`
  width: 40px;
  height: 40px;
@@ -70,6 +69,7 @@ const Icon = styled.div`
 `
 
 const Product = ({item}) => {
+    console.log(item)
   return (
     <Container>
         <Circle/>
