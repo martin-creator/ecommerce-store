@@ -27,6 +27,8 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
+    'import/no-relative-packages': 'off',
+    'import/no-import-module-exports': 'off',
   },
   overrides: [
     {
