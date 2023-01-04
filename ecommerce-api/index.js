@@ -1,19 +1,28 @@
-const express = require("express");
+/* Express App Configuration */
+const express = require('express');
+
 const app = express();
-const mongoose = require("mongoose");
-const dotenv = require("dotenv")
 
+const mongoose = require('mongoose');
 
-dotenv.config()
+const dotenv = require('dotenv');
 
+dotenv.config();
+
+/* Database connection */
 mongoose.connect(
-    process.env.MONGO_URL
-).then(()=>console.log(" DBConnection Successful!"))
- .catch((err)=>{
-    console.log(err)
- });
+  process.env.MONGO_URL,
+)
+  .then(() => console.log('DBConnection Successful!'))
+  .catch((err) => {
+    console.log(err);
+  });
 
+app.get('/api/test', () => {
+  console.log('Test is successful');
+});
 
-app.listen(process.env.PORT || 5000, ()=>{
-    console.log("Backend server is running!");
-})
+/* Port number */
+app.listen(process.env.PORT || 5000, () => {
+  console.log('Backend server is running!');
+});
