@@ -28,7 +28,7 @@ router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// Delete User
+// Delete Product
 router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
@@ -38,18 +38,16 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// // Get User
-// // eslint-disable-next-line consistent-return
-// router.get('/find/:id', verifyTokenAndAdmin, async (req, res) => {
-//   try {
-//     const user = await User.findById(req.params.id);
-//     const { password, ...others } = user._doc;
-
-//     return res.status(200).json({ others }); // separates password from being sent  in res object
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// Get Product
+// eslint-disable-next-line consistent-return
+router.get('/find/:id', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    return res.status(200).json(product);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // Get All Users
 // // eslint-disable-next-line consistent-return
