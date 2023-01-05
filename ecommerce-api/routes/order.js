@@ -37,40 +37,27 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// // Get Order
-// // eslint-disable-next-line consistent-return
-// router.get('/find/:id', async (req, res) => {
-//   try {
-//     const Order = await Order.findById(req.params.id);
-//     return res.status(200).json(Order);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// Get User Order
+// eslint-disable-next-line consistent-return
+router.get('/find/:id', async (req, res) => {
+  try {
+    const orders = await Order.find(req.params.userId);
+    return res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-// // Get All Orders
-// // eslint-disable-next-line consistent-return
-// router.get('/', async (req, res) => {
-//   const qNew = req.query.new;
-//   const qCategory = req.query.category;
-//   try {
-//     let Orders;
+// Get All Orders
+router.get('/', verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-//     if (qNew) {
-//       Orders = await Order.find().sort({ createdAt: -1 }).limit(5);
-//     } else if (qCategory) {
-//       Orders = await Order.find({
-//         categories: {
-//           $in: [qCategory],
-//         },
-//       });
-//     } else {
-//       Orders = await Order.find();
-//     }
-//     return res.status(200).json({ Orders });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// GET MONTHLY INCOME
 
 module.exports = router;
