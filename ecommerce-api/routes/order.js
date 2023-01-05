@@ -27,15 +27,15 @@ router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// // Delete Order
-// router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
-//   try {
-//     await Order.findByIdAndDelete(req.params.id);
-//     res.status(200).json('Order has been successfully deleted !');
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// Delete Order
+router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.id);
+    res.status(200).json('Order has been successfully deleted !');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // Get Order
 // // eslint-disable-next-line consistent-return
