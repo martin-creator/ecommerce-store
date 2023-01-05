@@ -49,18 +49,30 @@ router.get('/find/:id', async (req, res) => {
   }
 });
 
-// // Get All Users
-// // eslint-disable-next-line consistent-return
-// router.get('/', verifyTokenAndAdmin, async (req, res) => {
-//   const query = req.query.new;
-//   try {
-//     const users = query ? await User.find().sort({ _id: -1 }).limit(5) : await User.find();
+// Get All Products
+// eslint-disable-next-line consistent-return
+router.get('/', async (req, res) => {
+  const qNew = req.query.new;
+  const qCategory = req.query.category;
+  try {
+    let products;
 
-//     return res.status(200).json({ users });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    if (qNew) {
+      products = await Product.find().sort({ createdAt: -1 }).limit(5);
+    } else if (qCategory) {
+      products = await Product.find({
+        categories: {
+          $in: [qCategory],
+        },
+      });
+    } else {
+      products = await Product.find();
+    }
+    return res.status(200).json({ products });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // Get User Stats
 // router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
