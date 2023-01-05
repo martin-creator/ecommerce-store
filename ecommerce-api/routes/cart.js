@@ -15,7 +15,7 @@ router.post('/', verifyToken, async (req, res) => {
   }
 });
 
-// Update Product
+// Update Cart
 router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
   try {
     const updatedCart = await Cart.findByIdAndUpdate(req.params.id, {
@@ -27,15 +27,15 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
   }
 });
 
-// // Delete Product
-// router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
-//   try {
-//     await Product.findByIdAndDelete(req.params.id);
-//     res.status(200).json('Product has been successfully deleted !');
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// Delete Cart
+router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    await Cart.findByIdAndDelete(req.params.id);
+    res.status(200).json('Cart has been successfully deleted !');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // Get Product
 // // eslint-disable-next-line consistent-return
