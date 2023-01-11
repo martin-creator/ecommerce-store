@@ -3,17 +3,25 @@ import Topbar from './components/topbar/Topbar';
 import "./App.css"
 import { Home } from './pages/home/Home';
 import Chart from './components/chart/Chart';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import UserList from './pages/userList/UserList';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Topbar />
       <div className='container'>
         <Sidebar />
+        <Switch>
+        <Route exact path='/'>
         <Home />
-        <Chart />
+        </Route>
+        <Route path='/users'>
+        <UserList />
+        </Route>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 
