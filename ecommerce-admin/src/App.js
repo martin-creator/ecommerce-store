@@ -2,6 +2,7 @@ import  Sidebar from './components/sidebar/Sidebar';
 import Topbar from './components/topbar/Topbar';
 import "./App.css"
 import { Home } from './pages/home/Home';
+import Chart from './components/chart/Chart';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className='container'>
         <Sidebar />
         <Home />
+        <Chart />
       </div>
     </div>
   );
