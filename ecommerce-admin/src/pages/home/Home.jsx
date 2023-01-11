@@ -8,6 +8,9 @@ export const Home = () => {
     <div className="home">
         <FeaturedInfo />
         <Chart data={userData} title="User Analytics" grid dataKey="Active User"/>
+        <div className="homeWidgets">
+            
+        </div>
     </div>
   )
 }
