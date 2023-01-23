@@ -12,11 +12,12 @@ const Container = styled.div`
 
 `
 
-
-export const Announcement = () => {
+const Announcement = () => {
   return (
     <Container>
          Super Black Friday deal is now! Buy now to save 80% off the original price
     </Container>
   )
 }
+
+export default Announcement
